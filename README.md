@@ -1,0 +1,36 @@
+Makefile	- For building proxy
+README		- This file
+
+# Proxy source files
+proxy.{c,h}	- Primary proxy code
+csapp.{c,h}	- Wrapper and helper functions from the CS:APP text
+
+The proxy listens on a specified port, accepting incoming client connections. Depending on the concurrency mode specified at startup, it dispatches each connection to either a separate process (forked child process) or a new thread. It parses incoming HTTP requests, forwards them to the appropriate server, and sends the responses back to the client. HTTPS requests (CONNECT method) create a secure tunnel, blindly relaying data without inspection. Synchronization mechanisms (file locking for processes and mutex locking for threads) ensure safe concurrent logging.
+
+Description of Each in proxy.c:
+
+main: Parses command-line arguments, Sets concurrency mode (process/thread), Initializes mutex for threaded logging, Opens a listening socket on the specified port. 
+
+run_proxy: Accepts client connections, Dispatches each connection based on concurrency mode, Creates a new process via fork() in process mode, Creates and detaches a new thread in thread mode.
+
+thread_handler: Handles connections dispatched in thread mode, Calls handle_request to process HTTP/HTTPS requests.
+
+process_handler: Handles connections dispatched in process mode, Calls handle_request to process HTTP/HTTPS requests.
+
+handle_request: Reads the request line and headers from the client, Parses the URI for hostname, port, and path, Differentiates between regular HTTP and CONNECT requests, Logs each transaction in a synchronized manner.
+
+parse_uri: Extracts hostname, port, and path from the given URI, Supports default port (80) if none is specified.
+
+forward_http: Forwards regular HTTP requests to the destination server, Relays response back to the client, Tracks the size of the response for logging purposes.
+
+handle_connect: Handles HTTPS CONNECT requests, Establishes a TCP tunnel between client and destination server, Performs blind data relay via the relay method, Logs the bytes sent and received.
+
+relay: Performs bidirectional data relay between client and server sockets, Implements idle timeout for inactivity to gracefully close connections.
+
+format_http_log: Creates formatted log entries for regular HTTP requests.
+
+format_connect_log: Creates formatted log entries for CONNECT tunnel transactions.
+
+clienterror: Sends standardized HTTP error responses to the client when necessary.
+
+Logs are written to proxy.log.
