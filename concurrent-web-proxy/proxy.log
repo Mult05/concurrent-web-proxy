@@ -1,0 +1,12 @@
+Tue 22 Apr 2025 15:43:35 EDT: 127.0.0.1 http://example.com 1521
+Tue 22 Apr 2025 19:25:21 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 0 / Received: 0
+Tue 22 Apr 2025 19:28:23 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 0 / Received: 0
+Tue 22 Apr 2025 19:28:55 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 0 / Received: 0
+Tue 22 Apr 2025 19:31:31 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 674 / Received: 22087
+Tue 22 Apr 2025 19:32:01 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 635 / Received: 22060
+Tue 22 Apr 2025 19:32:36 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 674 / Received: 22052
+Tue 22 Apr 2025 19:35:46 EDT: CONNECT from 127.0.0.1 to www.bing.com:443, Data Sent: 631 / Received: 197747
+Tue 22 Apr 2025 19:35:46 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 674 / Received: 20916
+Tue 22 Apr 2025 19:45:31 EDT: CONNECT from 127.0.0.1 to www.bing.com:443, Data Sent: 631 / Received: 193857
+Tue 22 Apr 2025 19:45:31 EDT: CONNECT from 127.0.0.1 to www.google.com:443, Data Sent: 674 / Received: 21084
+Tue 22 Apr 2025 19:45:55 EDT: 127.0.0.1 http://www.example.com 1521
